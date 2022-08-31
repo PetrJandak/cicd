@@ -5,9 +5,11 @@ on:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
-    
+  workflow_call:
 jobs:
-    villa:
-       name: Villa Build FE
-       uses: PetrJandak/villa/.github/workflows/frontend.yml@main
+  villa:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Hello
+        run: echo hello
 
