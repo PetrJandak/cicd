@@ -11,5 +11,5 @@ on:
 jobs:
     villa:
        name: Villa Build FE
-       uses: /PetrJandak/villa/.github/workflows/frontend.yml@main
+       uses: PetrJandak/villa/.github/workflows/frontend.yml@main
 
