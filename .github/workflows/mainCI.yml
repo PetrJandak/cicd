@@ -8,7 +8,7 @@ on:
 
 jobs:
   FE:
-    uses: PetrJandak/villa/.github/workflows/main.yml
+    uses: PetrJandak/villa/.github/workflows/main.yml@main
   BE:
     runs-on: ubuntu-latest
     steps:
