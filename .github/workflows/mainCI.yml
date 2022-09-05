@@ -21,6 +21,6 @@ jobs:
           distribution: 'temurin'
           cache: maven
       - name: Build with Maven
-        run: echo mvn clean package on branch
+        run: echo mvn clean package on branch 1
       - name: Unit test run
         run: echo mvn test --flag --flag
