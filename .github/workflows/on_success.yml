@@ -1,7 +1,8 @@
 name: on success
 on:
   push:
-    - main
+    branches:
+      - main
   workflow_run:
     workflows:
       - CI Process
