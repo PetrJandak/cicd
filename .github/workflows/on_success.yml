@@ -3,7 +3,9 @@ name: On Success
 on:
   workflow_run:
     workflows: ["CI Process"]
-  pull_request: closed
+  pull_request:
+      types:
+        - closed
 
 jobs:
   on_success_job:
