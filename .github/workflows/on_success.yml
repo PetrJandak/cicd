@@ -3,11 +3,6 @@ name: On Success
 on:
   workflow_run:
     workflows: ["CI Process"]
-    types:
-      - completed
-    push:
-      branches:
-        - main
 jobs:
   on_success_job:
     runs-on: ubuntu-latest
