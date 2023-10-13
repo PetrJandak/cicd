@@ -3,6 +3,8 @@ name: On Success
 on:
   workflow_run:
     workflows: ["CI Process"]
+  pull_request: closed
+
 jobs:
   on_success_job:
     runs-on: ubuntu-latest
