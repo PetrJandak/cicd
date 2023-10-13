@@ -1,17 +1,16 @@
-name: CI Process
+name: CI
 on:
-  # Triggers the workflow on push or pull request events but only for the "main" branch
-  pull_request:
+  workflow_run:
+    workflows: [CI Process]
+    types: [completed]
 jobs:
   runs-on: 'ubuntu-latest'
   checkout:
     uses: actions/checkout@v2
     with:
       node: '18.16.1'
-  run_something:
+  on_success:
     runs-on: 'ubuntu-latest'
     needs: checkout
     run: |
       echo "Running something"
-      exit 0
-
