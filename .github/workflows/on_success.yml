@@ -5,10 +5,17 @@ on:
     workflows: ["CI Process"]
     types:
       - completed
+    push:
+      branches:
+        - main
 jobs:
   on_success_job:
     runs-on: ubuntu-latest
+    if: >
+      github.event.workflow_run.conclusion == 'success' &&
+      github.event.workflow_run.head_branch == 'main'
     steps:
+      - uses: actions/checkout@v2
       - name: Do something
         run: |
           echo "CI Process was successful on a pull request, doing something..."
