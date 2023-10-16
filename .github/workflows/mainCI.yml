@@ -8,13 +8,14 @@ on:
       - main
 env:
   folder: petr001
+
 jobs:
   first_job:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
         with:
-          path: "$folder"
+          path: ${{ env.folder }}
           sparse-checkout: README.md
       - name: Set up Node
         uses: actions/setup-node@v2
@@ -22,7 +23,7 @@ jobs:
           node-version: '18.16.1'
       - name: Run something
         run: |
-          echo "Running something"
+          ./test.sh
       - name: Dump GitHub context
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
