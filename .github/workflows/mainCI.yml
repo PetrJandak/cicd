@@ -23,6 +23,7 @@ jobs:
       - name: Run something
         working-directory: petr001
         run: |
+          chmod +x test.sh
           ./test.sh
       - name: Dump GitHub context
         env:
