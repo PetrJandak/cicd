@@ -30,10 +30,10 @@ jobs:
         env:
           JOB_CONTEXT: ${{ toJson(job) }}
         run: echo "$JOB_CONTEXT"
-#      - name: Dump steps context
-#        env:
-#          STEPS_CONTEXT: ${{ toJson(steps) }}
-#        run: echo "${{ env.STEPS_CONTEXT }}
+      - name: Dump steps context
+        env:
+          STEPS_CONTEXT: ${{ toJson(steps) }}
+        run: echo "$STEPS_CONTEXT"
 
   on_success_job:
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
