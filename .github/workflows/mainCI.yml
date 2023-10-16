@@ -6,14 +6,15 @@ on:
   push:
     branches:
       - main
-
+env:
+  folder: petr001
 jobs:
   first_job:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
         with:
-          path: petr001
+          path: ${{ env.folder }}
           sparse-checkout: README.md
       - name: Set up Node
         uses: actions/setup-node@v2
