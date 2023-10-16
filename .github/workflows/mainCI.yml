@@ -21,6 +21,7 @@ jobs:
         with:
           node-version: '18.16.1'
       - name: Run something
+        working-directory: petr001
         run: |
           ./test.sh
       - name: Dump GitHub context
