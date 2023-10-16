@@ -12,6 +12,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+        with:
+          path: petr001
+          sparse-checkout: README.md
       - name: Set up Node
         uses: actions/setup-node@v2
         with:
