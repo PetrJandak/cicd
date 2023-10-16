@@ -31,7 +31,7 @@ jobs:
   on_success_job:
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
-    needs: my_first_job
+    needs: first_job
     steps:
       - uses: actions/checkout@v2
       - name: Do something when merged to main
