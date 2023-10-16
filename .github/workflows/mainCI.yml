@@ -17,7 +17,7 @@ jobs:
         with:
           path: ${{ env.folder }}
       - name: Set up Node
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
           node-version: '18.16.1'
       - name: Run something
