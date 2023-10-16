@@ -1,1 +1,1 @@
-echo "$folder"
+echo "this is the folder: $folder"
