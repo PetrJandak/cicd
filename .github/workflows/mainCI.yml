@@ -23,7 +23,7 @@ jobs:
           node-version: '18.16.1'
       - name: Run something
         run: |
-          ./test.sh
+          ls -la
       - name: Dump GitHub context
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
