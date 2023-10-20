@@ -1,0 +1,19 @@
+name: on success
+
+on:
+  pull_request_target:
+    types: [merged]
+  push:
+    branches:
+      - main
+env:
+  folder: petr001
+
+jobs:
+  on_success_job:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Do something when merged to main
+        run: |
+          git tag -a 1.1.1
