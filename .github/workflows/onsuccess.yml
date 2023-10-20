@@ -5,7 +5,7 @@ on:
     types: [closed]
 
 env:
-  folder: petr001
+  folder: petr002
 
 jobs:
   on_success_job:
@@ -20,5 +20,5 @@ jobs:
           export EDITOR=nano
           git config --global user.name 'GitHub Actions'
           git config --global user.email 'actions@github.com'
-          git tag -a 1.1.1 -m "Tagged version 1.1.1"
-          git push origin 1.1.1
+          git tag -a 1.1.2 -m "Tagged version 1.1.1"
+          git push origin 1.1.2
