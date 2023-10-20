@@ -3,9 +3,10 @@ name: on success
 on:
   pull_request_target:
     types: [merged]
-  push:
-    branches:
-      - main
+  workflow_run:
+    workflows: ["CI Process"]
+    types: [completed]
+
 env:
   folder: petr001
 
