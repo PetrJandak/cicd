@@ -2,7 +2,7 @@ name: on success
 
 on:
   pull_request_target:
-    types: [merged]
+    types: [closed]
   workflow_run:
     workflows: ["CI Process"]
     types: [completed]
