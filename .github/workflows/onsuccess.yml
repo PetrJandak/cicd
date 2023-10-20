@@ -3,9 +3,6 @@ name: on success
 on:
   pull_request_target:
     types: [closed]
-  workflow_run:
-    workflows: ["CI Process"]
-    types: [completed]
 
 env:
   folder: petr001
@@ -23,5 +20,5 @@ jobs:
           export EDITOR=nano
           git config --global user.name 'GitHub Actions'
           git config --global user.email 'actions@github.com'
-           git tag -a 1.1.1 -m "Tagged version 1.1.1"
+          git tag -a 1.1.1 -m "Tagged version 1.1.1"
           git push origin 1.1.1
