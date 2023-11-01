@@ -3,6 +3,8 @@ name: CI Process
 on:
   pull_request:
     types: [opened, synchronize]
+    paths:
+      - 'data/**.json'
 env:
   folder: petr001
 
@@ -22,10 +24,7 @@ jobs:
         run: |
           chmod +x test.sh
           ./test.sh
-      - name: Dump GitHub context
-        env:
-          GITHUB_CONTEXT: ${{ toJson(github) }}
-        run: echo "$GITHUB_CONTEXT"
+
 
 
 

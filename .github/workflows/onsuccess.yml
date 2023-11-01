@@ -20,5 +20,31 @@ jobs:
           export EDITOR=nano
           git config --global user.name 'GitHub Actions'
           git config --global user.email 'actions@github.com'
-          git tag -a 1.1.2 -m "Tagged version 1.1.1"
-          git push origin 1.1.2
+        # Fetch all tags from the repo
+          git fetch --tags
+          
+          # Extract the highest tag number (assuming tags are in the format "Release_v_X")
+          latest_tag=$(git tag -l "Release_v_*" | sort -V | tail -n 1)
+          
+          # Extract the number from the tag (removing the "Release_v_" prefix)
+          if [[ $latest_tag == "" ]]; then
+          # If there are no tags matching the format, start from 1
+          next_tag_num=1
+          else
+          current_num=${latest_tag#Release_v_}
+          # Increment the number by 1
+          next_tag_num=$((current_num + 1))
+          fi
+          
+          # Create a new tag
+          git tag "Release_v_$next_tag_num"
+          
+          # Push the new tag to the repository
+          git push origin "Release_v_$next_tag_num"
+          You can integrate this script into your GitHub Actions workflow. Ensure to have a checkout step and proper permissions (i.e., secrets.GH_TOKEN or secrets.GITHUB_TOKEN) to push tags to the repository.
+
+
+
+
+
+
