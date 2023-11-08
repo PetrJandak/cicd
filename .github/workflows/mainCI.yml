@@ -2,6 +2,7 @@ name: CI Process
 on:
   pull_request:
     types: [opened, synchronize]
+
 jobs:
   first_job:
     runs-on: ubuntu-latest
@@ -13,7 +14,7 @@ jobs:
           node-version: '18.16.1'
       - name: Run something
         run: |
-          echo ${{ inputs.my_var }}
+          echo test
 
 
 
