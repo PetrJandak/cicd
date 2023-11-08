@@ -6,7 +6,7 @@ on:
 
 jobs:
   first_job:
-    uses: ./.github/workflows/test.yaml@petr-test
+    uses: ./.github/workflows/test.yaml
     with:
       my_var: ${{ vars.MUJ_VAR }}
 
