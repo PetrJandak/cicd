@@ -13,8 +13,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-        with:
-          path: ${{ env.folder }}
       - name: Set up Node
         uses: actions/setup-node@v3
         with:
