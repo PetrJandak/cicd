@@ -1,8 +1,6 @@
 name: on success
 
 on:
-  pull_request_target:
-    types: [ closed ]
   push:
     paths:
       - '**json'
@@ -15,6 +13,7 @@ env:
 jobs:
   on_success_job:
     runs-on: ubuntu-latest
+    if: github.event.pull_request.merged == true
     steps:
       - name: Hello
         uses: actions/checkout@v2
