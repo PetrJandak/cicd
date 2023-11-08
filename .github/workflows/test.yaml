@@ -1,7 +1,7 @@
 name: CI Process
 
 on:
-  workflow_dispatch:
+  workflow_call:
     inputs:
       my_var:
         description: 'dsad'
