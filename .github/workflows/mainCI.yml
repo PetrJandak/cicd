@@ -1,15 +1,20 @@
 name: CI Process
-
 on:
-  push:
-
-
+  pull_request_target:
+    types:
+      - closed
 jobs:
   first_job:
-    uses: ./.github/workflows/test.yaml
-    with:
-      my_var: ${{ vars.MUJ_VAR }}
-
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18.16.1'
+      - name: Run something
+        run: |
+          echo ${{ inputs.my_var }}
 
 
 
