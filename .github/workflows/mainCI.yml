@@ -1,10 +1,7 @@
 name: CI Process
 
 on:
-  pull_request:
-    types: [opened, synchronize]
-    paths:
-      - 'data/**.json'
+  push:
 env:
   folder: petr001
 
@@ -22,8 +19,7 @@ jobs:
       - name: Run something
         working-directory: petr001
         run: |
-          chmod +x test.sh
-          ./test.sh
+          echo ${{ vars.MUJ_VAR }}
 
 
 

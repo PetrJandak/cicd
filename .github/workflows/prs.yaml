@@ -1,0 +1,26 @@
+name: on success
+on:
+  schedule:
+    - cron: '0 9 * * 1-5'
+  workflow_dispatch:
+
+env:
+  WEBHOOK_URL: ${{ secrets.WEBHOOK_URL }}
+  REPOS: cicd
+jobs:
+  on_success_job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Hello
+        uses: actions/checkout@v2
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '18'
+      - name: Run script
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TEAMS_WEBHOOK_URL: ${{ env.WEBHOOK_URL }}
+          REPOSITORIES: repo1,repo2,repo3
+        run: node sendToTeams.js
+
