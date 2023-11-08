@@ -1,8 +1,7 @@
 name: CI Process
 on:
-  pull_request_target:
-    types:
-      - closed
+  pull_request:
+    types: [opened, synchronize]
 jobs:
   first_job:
     runs-on: ubuntu-latest
