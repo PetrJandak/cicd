@@ -1,0 +1,29 @@
+name: CI Process
+
+on:
+  workflow_dispatch:
+    inputs:
+      my_var:
+        description: 'dsad'
+        required: true
+        type: string
+
+jobs:
+  first_job:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          path: ${{ env.folder }}
+      - name: Set up Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18.16.1'
+      - name: Run something
+        working-directory: petr001
+        run: |
+          echo ${{ inputs.my_var }}
+
+
+
+
