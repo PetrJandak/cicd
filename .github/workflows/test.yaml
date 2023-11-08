@@ -1,7 +1,13 @@
 name: CI Process
+
 on:
-  pull_request:
-    types: [opened, synchronize]
+  workflow_call:
+    inputs:
+      my_var:
+        description: 'dsad'
+        required: true
+        type: string
+
 jobs:
   first_job:
     runs-on: ubuntu-latest
