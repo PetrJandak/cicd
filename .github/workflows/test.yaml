@@ -18,7 +18,6 @@ jobs:
         with:
           node-version: '18.16.1'
       - name: Run something
-        working-directory: petr001
         run: |
           echo ${{ inputs.my_var }}
 
