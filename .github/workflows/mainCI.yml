@@ -22,10 +22,10 @@ jobs:
           IS_LATEST: ${{ github.event.inputs.isLatest }}
         run: |
           echo "Input isLatest: $IS_LATEST"
-          echo "TAGS=firstCondition" >> $GITHUB_ENV
+          echo "TAGS=firstCondition" >> $GITHUB_OUTPUT
           if [ "$IS_LATEST" == "true" ]; then
-            echo "TAGS=1,latest" >> $GITHUB_ENV
+            echo "TAGS=1,latest" >> $GITHUB_OUTPUT
           fi
       - name: print version
         run: |
-          echo "Versions are: $TAGS"
+          echo "Versions are: ${{ steps.set_tags.outputs.TAGS }}"
