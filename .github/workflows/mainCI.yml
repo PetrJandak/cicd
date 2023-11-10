@@ -19,7 +19,7 @@ jobs:
       - name: Determine if push with latest
         id: set_tags
         run: |
-          if [[ ${{ github.event.inputs.isLatest }} ]]; then
+          if [[ "${{ github.event.inputs.isLatest }}" == true ]]; then
             echo "TAGS=1" >> $GITHUB_OUTPUT
           else 
             echo "TAGS=firstCondition" >> $GITHUB_OUTPUT
