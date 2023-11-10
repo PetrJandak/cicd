@@ -20,7 +20,7 @@ jobs:
         id: set_tags
         run: |
           echo "TAGS=firstCondition" >> $GITHUB_ENV
-          if [[ "${{ github.event.inputs.isLatest }}" == 'true' ]]; then
+          if [[ "${{ github.event.inputs.isLatest }}" == true ]]; then
             echo "TAGS=1,latest" >> $GITHUB_ENV
           fi
       - name: print version
