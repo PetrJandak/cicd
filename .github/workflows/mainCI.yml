@@ -1,12 +1,12 @@
 name: CI Process
 on:
+  push:
   workflow_dispatch:
-    push:
-      inputs:
-        isLatest:
-          description: 'fdsf'
-          required: false
-          default: false
+    inputs:
+      isLatest:
+        description: 'Is this the latest version?'
+        required: false
+        default: 'false'
 jobs:
   first_job:
     runs-on: ubuntu-latest
@@ -19,15 +19,10 @@ jobs:
       - name: Determine if push with latest
         id: set_tags
         run: |
-          echo "TAGS=firsCondition" >> $GITHUB_OUTPUT
-          if [[ ${{ github.event.inputs.isLatest }} == 'true' ]]; then
-            echo "TAGS=1,latest" >> $GITHUB_OUTPUT
+          echo "TAGS=firstCondition" >> $GITHUB_ENV
+          if [[ "${{ github.event.inputs.isLatest }}" == 'true' ]]; then
+            echo "TAGS=1,latest" >> $GITHUB_ENV
           fi
       - name: print version
         run: |
-          echo " versions are: ${{ steps.set_tag_outputs.TAGS }}"
-          
-
-
-
-
+          echo "Versions are: $TAGS"
