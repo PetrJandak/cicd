@@ -1,12 +1,12 @@
 name: CI Process
 on:
-  push:
   workflow_dispatch:
-    inputs:
-      isLatest:
-        description: 'fdsf'
-        required: false
-        default: false
+    push:
+      inputs:
+        isLatest:
+          description: 'fdsf'
+          required: false
+          default: false
 jobs:
   first_job:
     runs-on: ubuntu-latest
