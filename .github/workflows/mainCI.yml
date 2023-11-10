@@ -6,7 +6,7 @@ on:
       isLatest:
         description: 'Is this the latest version?'
         required: false
-        default: 'true'
+        default: true
 jobs:
   first_job:
     runs-on: ubuntu-latest
