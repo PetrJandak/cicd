@@ -21,7 +21,7 @@ jobs:
         run: |
           echo "TAGS=firstCondition" >> $GITHUB_OUTPUT
           if [[ "${{ github.event.inputs.isLatest }}" == 'true' ]]; then
-            echo "$TAGS=1,latest" >> $GITHUB_OUTPUT
+            echo "TAGS=1,latest" >> $GITHUB_OUTPUT
           fi
       - name: print version
         run: |
