@@ -6,7 +6,7 @@ on:
       isLatest:
         description: 'Is this the latest version?'
         required: false
-        default: true
+        default: 'false'
 jobs:
   first_job:
     runs-on: ubuntu-latest
@@ -18,12 +18,14 @@ jobs:
           node-version: '18.16.1'
       - name: Determine if push with latest
         id: set_tags
+        env:
+          IS_LATEST: ${{ github.event.inputs.isLatest }}
         run: |
-          if [[ "${{ github.event.inputs.isLatest }}" == true ]]; then
-            echo "TAGS=1" >> $GITHUB_OUTPUT
-          else 
-            echo "TAGS=firstCondition" >> $GITHUB_OUTPUT
+          echo "Input isLatest: $IS_LATEST"
+          echo "TAGS=firstCondition" >> $GITHUB_ENV
+          if [ "$IS_LATEST" == "true" ]; then
+            echo "TAGS=1,latest" >> $GITHUB_ENV
           fi
       - name: print version
         run: |
-          echo "Versions are: ${{ steps.set_tags.outputs.TAGS}}"
+          echo "Versions are: $TAGS"
