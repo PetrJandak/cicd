@@ -6,8 +6,6 @@ on:
       - closed
     paths:
       - 'data/**.json'
-    branches:
-      - main
 
 env:
   folder: petr002
