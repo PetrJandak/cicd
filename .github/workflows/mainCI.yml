@@ -1,12 +1,7 @@
 name: CI Process
 on:
   push:
-  workflow_dispatch:
-    inputs:
-      isLatest:
-        description: 'Is this the latest version?'
-        required: false
-        default: 'true'
+
 jobs:
   first_job:
     runs-on: ubuntu-latest
@@ -16,16 +11,3 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '18.16.1'
-      - name: Determine if push with latest
-        id: set_tags
-        env:
-          IS_LATEST: ${{ github.event.inputs.isLatest }}
-        run: |
-          echo "Input isLatest: $IS_LATEST"
-          echo "TAGS=firstCondition" >> $GITHUB_OUTPUT
-          if [ "$IS_LATEST" == "true" ]; then
-            echo "TAGS=1,latest" >> $GITHUB_OUTPUT
-          fi
-      - name: print version
-        run: |
-          echo "Versions are: ${{ steps.set_tags.outputs.TAGS }}"
