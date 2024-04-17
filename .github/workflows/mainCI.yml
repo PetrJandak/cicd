@@ -19,10 +19,10 @@ jobs:
           node-version: '18.16.1'
       - name: Fail me
         run: |
-          echo "${{ inputs.skip_me == 'true' }}"
+          echo "${{ github.event.inputs.skip_me == 'true' }}"
           exit 1
   second_jobs:
-    if: ${{ inputs.skip_me == 'true' }}
+    if: ${{ github.event.inputs.skip_me == 'true' }}
     needs: first_job
     runs-on: ubuntu-latest
     steps:
