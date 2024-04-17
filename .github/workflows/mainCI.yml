@@ -19,9 +19,10 @@ jobs:
           node-version: '18.16.1'
       - name: Fail me
         run: |
+          echo "${{ github.event.workflow_dispatch && inputs.skip_me }}"
          exit 1
   second_jobs:
-    if: ${{ github.event.workflow_dispatch && inputs.skip_me }}
+    if: ${{ 1 == 1 }}
     needs: first_job
     runs-on: ubuntu-latest
     steps:
