@@ -22,6 +22,7 @@ jobs:
          exit 1
   second_jobs:
     if: ${{ inputs.skip_me }}
+    needs: first_job
     runs-on: ubuntu-latest
     steps:
       - name: Write me
