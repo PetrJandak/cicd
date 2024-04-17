@@ -21,7 +21,7 @@ jobs:
         run: |
          exit 1
   second_jobs:
-    if: ${{ inputs.skip_me == 'true' }}
+    if: inputs.skip_me == 'true'
     needs: first_job
     runs-on: ubuntu-latest
     steps:
