@@ -1,6 +1,12 @@
 name: CI Process
 on:
   push:
+  workflow_dispatch:
+    inputs:
+      skip_me:
+        description: 'skip'
+        type: boolean
+        default: false
 
 jobs:
   first_job:
@@ -11,3 +17,14 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '18.16.1'
+      - name: Fail me
+        run: |
+         exit 1
+  second_jobs:
+    if: ${{ inputs.skip_me }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Write me
+        run: |
+          echo "I have run"
+    
