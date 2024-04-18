@@ -29,7 +29,7 @@ jobs:
         id: fail_me
         run: |
           echo "SKIP=${{ github.event.inputs.skip_me == 'true' }}" >> $GITHUB_OUTPUT
-          exit 1
+          exit 0
 
   second_jobs:
     needs: first_job
