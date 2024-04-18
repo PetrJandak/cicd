@@ -8,7 +8,7 @@ on:
         description: 'Skip the second job'
         required: false
         type: boolean
-        default: false
+        default: true
 
 jobs:
   first_job:
