@@ -16,7 +16,6 @@ on:
 
 jobs:
   first_job:
-    continue-on-error: true
     runs-on: ubuntu-latest
     outputs:
       skip: ${{ steps.fail_me.outputs.SKIP_ME }}
