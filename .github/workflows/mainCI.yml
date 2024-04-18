@@ -17,6 +17,8 @@ on:
 jobs:
   first_job:
     runs-on: ubuntu-latest
+    outputs:
+      skip: ${{ steps.fail_me.outputs.SKIP }}
     steps:
       - uses: actions/checkout@v4
       - name: Set up Node
@@ -26,12 +28,13 @@ jobs:
       - name: Fail me
         id: fail_me
         run: |
+          echo "SKIP=${{ github.event.inputs.skip_me == 'true' }}" >> $GITHUB_OUTPUT
           exit 1
 
   second_jobs:
     needs: first_job
     runs-on: ubuntu-latest
-    if: ${{ failure() }}
+    if: ${{ failure() && needs.first_job.outputs.SKIP == 'true' }}
     steps:
       - name: Write me
         run: |
