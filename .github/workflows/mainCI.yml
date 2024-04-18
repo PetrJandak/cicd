@@ -27,7 +27,7 @@ jobs:
         id: fail_me
         run: |
           echo "SKIP_ME=${{ github.event.inputs.skip_me }} >> $GITHUB_OUTPUT"
-          echo "${{ inputs.skip_me }}"
+          echo "${{ fromJSON(github.event.inputs) }}"
           exit 1
 
   second_jobs:
