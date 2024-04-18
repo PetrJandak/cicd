@@ -33,9 +33,9 @@ jobs:
           exit 1
 
   second_jobs:
-    if: ${{ needs.first_job.result == 'failure' }}
     needs: first_job
     runs-on: ubuntu-latest
+    if: ${{ needs.first_job.result != 'success' }}
     steps:
       - name: Write me
         run: |
