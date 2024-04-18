@@ -23,6 +23,7 @@ jobs:
         with:
           node-version: '18.16.1'
       - name: Fail me
+        continue-on-error: true
         id: fail_me
         run: |
           echo "SKIP_ME=${{ github.event.inputs.skip_me }} >> $GITHUB_OUTPUT"
