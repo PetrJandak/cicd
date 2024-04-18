@@ -29,12 +29,12 @@ jobs:
         id: fail_me
         run: |
           echo "SKIP=${{ github.event.inputs.skip_me == 'true' }}" >> $GITHUB_OUTPUT
-          exit 1
+          exit 0
 
   second_jobs:
     needs: first_job
     runs-on: ubuntu-latest
-    if: ${{ failure() && needs.first_job.outputs.SKIP == 'true' }} || ${{ success() }}
+    if: ${{ failure() && needs.first_job.outputs.SKIP == 'true' }}
     steps:
       - name: Write me
         run: |
