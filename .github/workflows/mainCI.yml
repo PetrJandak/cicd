@@ -1,7 +1,6 @@
 name: CI Process
 
 on:
-  push:
   workflow_dispatch:
     inputs:
       skip_me:
@@ -9,6 +8,7 @@ on:
         required: false
         type: boolean
         default: false
+  push:
 
 jobs:
   first_job:
@@ -26,8 +26,8 @@ jobs:
         continue-on-error: true
         id: fail_me
         run: |
+          echo ${{ github.event.inputs.skip_me }}
           echo "SKIP_ME=${{ github.event.inputs.skip_me }}" >> $GITHUB_OUTPUT
- 
           exit 1
 
   second_jobs:
