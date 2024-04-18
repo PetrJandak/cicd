@@ -30,7 +30,7 @@ jobs:
         continue-on-error: true
         id: fail_me
         run: |
-          echo "${{ inputs.hello }}"
+          echo "${{ github.event.inputs.hello }}"
           echo "SKIP_ME=${{ github.event.inputs.skip_me }}" >> $GITHUB_OUTPUT
           exit 1
 
