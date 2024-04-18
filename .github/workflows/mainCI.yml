@@ -8,6 +8,10 @@ on:
         required: false
         type: boolean
         default: false
+      hello:
+        description: 'fdfd'
+        type: string
+        default: 'hello'
   push:
 
 jobs:
@@ -26,7 +30,7 @@ jobs:
         continue-on-error: true
         id: fail_me
         run: |
-          echo "${{ inputs.skip_me }}"
+          echo "${{ inputs.hello }}"
           echo "SKIP_ME=${{ github.event.inputs.skip_me }}" >> $GITHUB_OUTPUT
           exit 1
 
