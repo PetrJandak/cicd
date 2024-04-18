@@ -26,11 +26,11 @@ jobs:
         continue-on-error: true
         id: fail_me
         run: |
-          echo "SKIP_ME=${{ github.event.inputs.skip_me }} >> $GITHUB_OUTPUT"
+          echo "SKIP_ME=true >> $GITHUB_OUTPUT"
           exit 1
 
   second_jobs:
-    if: 1 == 1
+    if: ${{ needs.first_job_outputs.SKIP_ME }}
     needs:
     - first_job
     runs-on: ubuntu-latest
