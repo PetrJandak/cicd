@@ -8,7 +8,7 @@ on:
         description: 'Skip the second job'
         required: false
         type: boolean
-        default: true
+        default: false
 
 jobs:
   first_job:
@@ -26,7 +26,8 @@ jobs:
         continue-on-error: true
         id: fail_me
         run: |
-          echo "SKIP_ME=${{ github.event.inputs.skip_me}} >> $GITHUB_OUTPUT"
+          echo "SKIP_ME=${{ github.event.inputs.skip_me }} >> $GITHUB_OUTPUT"
+          echo "${{ github.event.inputs.skip_me }}"
           exit 1
 
   second_jobs:
