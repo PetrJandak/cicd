@@ -41,4 +41,4 @@ jobs:
     steps:
       - name: Write me
         run: |
-          echo "${{ fromJSON(needs.first_job.outputs.SKIP_ME) }}"
+          echo "${{ needs.first_job.outputs.SKIP_ME }}"
