@@ -16,6 +16,7 @@ on:
 
 jobs:
   first_job:
+    continue-on-error: true
     runs-on: ubuntu-latest
     outputs:
       skip: ${{ steps.fail_me.outputs.SKIP }}
@@ -29,7 +30,7 @@ jobs:
         id: fail_me
         run: |
           echo "SKIP=${{ github.event.inputs.skip_me == 'true' }}" >> $GITHUB_OUTPUT
-          exit 0
+          exit 1
 
   second_jobs:
     needs: first_job
