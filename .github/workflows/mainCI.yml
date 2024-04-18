@@ -34,7 +34,7 @@ jobs:
           exit 0
 
   second_jobs:
-    if: ${{ needs.first_job.outputs.skip == 'true' }}
+    if: success() || ${{ needs.first_job.outputs.skip == 'true' }}
     needs:
     - first_job
     runs-on: ubuntu-latest
