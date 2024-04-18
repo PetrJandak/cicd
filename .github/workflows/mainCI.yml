@@ -34,11 +34,11 @@ jobs:
           exit 1
 
   second_jobs:
-    if: always()
+    if: ${{ needs.first_job.outputs.SKIP_ME == 'true' }}
     needs:
     - first_job
     runs-on: ubuntu-latest
     steps:
       - name: Write me
         run: |
-          echo "${{ needs.first_job.outputs.SKIP_ME }}"
+          echo "${{ needs.first_job.outputs.skip }}"
