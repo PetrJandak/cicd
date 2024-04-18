@@ -31,7 +31,7 @@ jobs:
   second_jobs:
     needs: first_job
     runs-on: ubuntu-latest
-    if: ${{ needs.first_job.result == 'failure' }}
+    if: ${{ failure() }}
     steps:
       - name: Write me
         run: |
