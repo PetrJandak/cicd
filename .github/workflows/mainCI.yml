@@ -16,7 +16,7 @@ on:
 
 jobs:
   first_job:
-    continue-on-error: ${{ inputs.create_release != 'true' && inputs.skip == 'false' }}
+    continue-on-error: ${{ inputs.create_release != 'true' && inputs.skip != 'false' }}
     runs-on: ubuntu-latest
     outputs:
       skip: ${{ steps.fail_me.outputs.SKIP }}
@@ -26,8 +26,8 @@ jobs:
         id: fail_me
         run: |
           echo " create_release: ${{ inputs.create_release != 'true' }}"
-          echo " skip: ${{ inputs.skip == 'false' }}"
-          echo " all of this: ${{ inputs.create_release == 'false' && inputs.skip == 'true' }}"
+          echo " skip: ${{ inputs.skip != 'false' }}"
+          echo " all of this: ${{ inputs.create_release != 'false' && inputs.skip != 'true' }}"
           echo "SKIP=${{ github.event.inputs.skip_me == 'true' }}" >> $GITHUB_OUTPUT
           exit 1
 
