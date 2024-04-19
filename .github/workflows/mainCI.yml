@@ -16,7 +16,7 @@ on:
 
 jobs:
   first_job:
-    continue-on-error: ${{ github.event_name.push == 'true' && ( inputs.create_release == 'true' || inputs.skip == 'true') }}
+    continue-on-error: ${{ github.event_name.push == 'true' && inputs.skip == 'true' && inputs.create_release == 'false' }}
     runs-on: ubuntu-latest
     outputs:
       skip: ${{ steps.fail_me.outputs.SKIP }}
@@ -28,7 +28,7 @@ jobs:
           echo "dispatch ${{ github.event.workflow_dispatch != 'true' }}"
           echo " create_release: ${{ inputs.create_release != 'true' }}"
           echo " skip: ${{ inputs.skip != 'false' }}"
-          echo " all of this: ${{ github.event_name == 'true' && ( inputs.create_release == 'true' || inputs.skip == 'true') }}"
+          echo " all of this: ${{ github.event_name.push == 'true' && inputs.skip == 'true' && inputs.create_release == 'false' }}"
           echo "SKIP=${{ github.event.inputs.skip_me == 'true' }}" >> $GITHUB_OUTPUT
           exit 1
 
