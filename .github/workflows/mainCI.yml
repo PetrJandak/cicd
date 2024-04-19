@@ -28,7 +28,7 @@ jobs:
           echo "dispatch ${{ github.event.workflow_dispatch != 'true' }}"
           echo " create_release: ${{ inputs.create_release != 'true' }}"
           echo " skip: ${{ inputs.skip != 'false' }}"
-          echo " all of this: ${{ github.event.workflow_dispatch != 'true' && ( inputs.create_release != 'true' && inputs.skip == 'true') }}"
+          echo " all of this: ${{ github.event.workflow_dispatch != 'true' && ( inputs.create_release != 'true' && inputs.skip != 'true') }}"
           echo "SKIP=${{ github.event.inputs.skip_me == 'true' }}" >> $GITHUB_OUTPUT
           exit 1
 
