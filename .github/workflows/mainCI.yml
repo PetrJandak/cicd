@@ -25,8 +25,8 @@ jobs:
       - name: Fail me
         id: fail_me
         run: |
-          echo " create_release: ${{ inputs.create_release == 'false' }}"
-          echo " skip: ${{ inputs.skip == 'true' }}"
+          echo " create_release: ${{ inputs.create_release != 'true' }}"
+          echo " skip: ${{ inputs.skip == 'false' }}"
           echo " all of this: ${{ inputs.create_release == 'false' && inputs.skip == 'true' }}"
           echo "SKIP=${{ github.event.inputs.skip_me == 'true' }}" >> $GITHUB_OUTPUT
           exit 1
