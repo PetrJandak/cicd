@@ -22,15 +22,11 @@ jobs:
       skip: ${{ steps.fail_me.outputs.SKIP }}
     steps:
       - uses: actions/checkout@v4
-      - name: Set up Node
-        uses: actions/setup-node@v3
-        with:
-          node-version: '18.16.1'
       - name: Fail me
         id: fail_me
         run: |
-          echo " create_release: ${{ inputs.create_release }}"
-          echo " skip: ${{ inputs.skip }}"
+          echo " create_release: ${{ inputs.create_release == 'false' }}"
+          echo " skip: ${{ inputs.skip == 'true' }}"
           echo " all of this: ${{ inputs.create_release == 'false' && inputs.skip == 'true' }}"
           echo "SKIP=${{ github.event.inputs.skip_me == 'true' }}" >> $GITHUB_OUTPUT
           exit 1
