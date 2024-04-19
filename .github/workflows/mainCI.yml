@@ -16,7 +16,7 @@ on:
 
 jobs:
   first_job:
-    continue-on-error: ${{ github.event.workflow_dispatch != 'false' && ( inputs.create_release != 'true' && inputs.skip == 'true') }}
+    continue-on-error: ${{ github.event.workflow_dispatch != 'true' && ( inputs.create_release != 'true' && inputs.skip != 'true') }}
     runs-on: ubuntu-latest
     outputs:
       skip: ${{ steps.fail_me.outputs.SKIP }}
