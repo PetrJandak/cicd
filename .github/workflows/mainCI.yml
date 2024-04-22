@@ -27,6 +27,7 @@ jobs:
         run: |
           exit 1
       - name: Report status
+        if: always()
         run: |
           if ${{ steps.fail_me.outcome == 'failure'}}
             echo "Build has failed"
