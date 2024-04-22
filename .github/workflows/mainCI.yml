@@ -31,6 +31,9 @@ jobs:
           echo " all of this:  ${{ github.event_name == 'push' || (github.event_name == 'workflow_dispatch' && inputs.skip == 'true') || (inputs.create_release == 'true' && inputs.skip == 'true') }}"
           echo "SKIP=${{ github.event.inputs.skip_me == 'true' }}" >> $GITHUB_OUTPUT
           exit 1
+      - name: Report status
+        run: |
+          echo "step has status: ${{ steps.fail_me.outcome }}"
 
   second_jobs:
     needs: first_job
