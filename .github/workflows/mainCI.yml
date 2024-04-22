@@ -27,6 +27,7 @@ jobs:
         run: |
           exit 1
       - name: Report status
+        continue-on-error: false
         if: always()
         run: |
           if [ "${{ steps.fail_me.outcome }}" = "failure" ]; then
