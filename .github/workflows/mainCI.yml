@@ -29,12 +29,14 @@ jobs:
       - name: Report status
         if: always()
         run: |
-          if ${{ steps.fail_me.outcome == 'failure'}}
+          if [ "${{ steps.fail_me.outcome }}" = "failure" ]; then
             echo "Build has failed"
             exit 1
           else 
             echo "Build has succeeded or is conditionally allowed to continue"
             exit 0
+          fi
+        shell: bash
 
   second_jobs:
     needs: first_job
