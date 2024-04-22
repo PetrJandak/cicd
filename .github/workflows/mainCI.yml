@@ -25,13 +25,9 @@ jobs:
       - name: Fail me
         id: fail_me
         run: |
-          echo "push ${{ github.event_name == 'push' }}"
-          echo " create_release: ${{ inputs.create_release != 'false' }}"
-          echo " skip: ${{ inputs.skip != 'false' }}"
-          echo " all of this:  ${{ github.event_name == 'push' || (github.event_name == 'workflow_dispatch' && inputs.skip == 'true') || (inputs.create_release == 'true' && inputs.skip == 'true') }}"
-          echo "SKIP=${{ github.event.inputs.skip_me == 'true' }}" >> $GITHUB_OUTPUT
           exit 1
       - name: Report status
+        if: success() || failure() && ${{ inputs.skip_me == 'true' }}
         run: |
           echo "step has status: ${{ steps.fail_me.outcome }}"
 
