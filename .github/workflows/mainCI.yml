@@ -27,8 +27,7 @@ jobs:
         run: |
           exit 1
       - name: Report status
-        continue-on-error: false
-        if: always()
+        if: success || failure() && ${{ !inputs.create_release }}
         run: |
           if [ "${{ steps.fail_me.outcome }}" = "failure" ]; then
             echo "Build has failed"
