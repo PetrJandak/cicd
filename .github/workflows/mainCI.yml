@@ -27,14 +27,13 @@ jobs:
         run: |
           exit 1
       - name: Report status
-        if: success() || failure() && ${{ inputs.skip_me == 'true' }}
+        if: true
         run: |
           echo "step has status: ${{ steps.fail_me.outcome }}"
 
   second_jobs:
     needs: first_job
     runs-on: ubuntu-latest
-    if: true
     steps:
       - name: Write me
         run: |
