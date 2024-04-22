@@ -27,7 +27,7 @@ jobs:
         run: |
           exit 1
       - name: Report status
-        if: true
+        if: failure()
         run: |
           echo "step has status: ${{ steps.fail_me.outcome }}"
 
