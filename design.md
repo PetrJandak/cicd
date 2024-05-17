@@ -2,29 +2,29 @@
 
 ```mermaid
 
-graph TB
-    subgraph Local_Development
+graph TD
+    %% Define Subgraphs (Columns)
+    subgraph Local_Development [Local Development]
         A1[Local Development]
-        A2["Environment Variables (.env file)"]
+        A2[Environment Variables (.env file)]
     end
 
-    subgraph Docker_Compose
-        B1[Docker Orchestration]
-        subgraph Docker_Services
+    subgraph Docker_Orchestration [Docker Orchestration]
+        B1[Docker orchestration]
+        subgraph Docker_Services [Services]
             B2[Test Config Store]
             B3[Mocked Data]
             B4[Service A]
+            subgraph Testing_Framework [Testing Framework]
+                C1[Suites]
+                C2[Test Runner]
+                C3[Reporter]
+                C4[Test Artifacts]
+            end
         end
     end
 
-    subgraph Testing_Framework
-        C1[Suites]
-        C2[Test Runner]
-        C3[Reporter]
-        C4[Test Artifacts]
-    end
-
-    subgraph Github_Actions
+    subgraph Github_Actions [Github Actions]
         D1[Unit Tests and Security Scan]
         D2[Smoke Test - snippet from Integration tests]
         D3[Integration Tests - Merge to main]
@@ -33,18 +33,18 @@ graph TB
         D6[Environment Variables]
     end
 
-    subgraph Report_Generation
+    subgraph Report_Generation [Report Generation]
         E1[File Report]
     end
 
-    Local_Development --> Docker_Compose
-    Docker_Compose --> Testing_Framework
-    Testing_Framework --> Github_Actions
-    Testing_Framework --> D1
-    Testing_Framework --> D2
-    Testing_Framework --> D3
-    Testing_Framework --> D4
-    Testing_Framework --> D5
+    %% Connect Nodes
+    A1 --> B1
+    A2 --> B1
+    B1 --> D1
+    B1 --> D2
+    B1 --> D3
+    B1 --> D4
+    B1 --> D5
     D1 --> E1
     D2 --> E1
     D3 --> E1
@@ -55,8 +55,12 @@ graph TB
     D6 --> D3
     D6 --> D4
     D6 --> D5
-    A2 --> A1
-    A2 --> Testing_Framework
+    B2 --> C1
+    B3 --> C1
+    B4 --> C1
+    C1 --> C2
+    C2 --> C3
+    C3 --> C4
 
 
     ```
