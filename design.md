@@ -6,7 +6,7 @@ graph TD
     %% Define Subgraphs (Columns)
     subgraph Local_Development [Local Development]
         A1[Local Development]
-        A2[Environment Variables (.env file)]
+        A2["Environment Variables (.env file)"]
     end
 
     subgraph Docker_Orchestration [Docker Orchestration]
