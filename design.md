@@ -18,10 +18,10 @@ flowchart LR
     subgraph Github Actions
         direction TB
         J[Unit Tests\nSecurity Scan]
-        K[@Smoke Test - snippet from Integration tests]
-        L[@Integration tests (Merge to main)]
-        M[@Nightly (Full End 2 End)]
-        N[@Performance Tests (Pre-Release)]
+        K[Smoke Test - snippet from Integration tests]
+        L[Integration tests Merge to main]
+        M[Nightly Full End 2 End]
+        N[Performance Tests Pre-Release]
     end
     O[File Report]
 
@@ -41,7 +41,5 @@ flowchart LR
     L --> M
     M --> N
     N --> O
-
-
 
     ```
