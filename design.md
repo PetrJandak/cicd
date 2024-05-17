@@ -25,10 +25,10 @@ graph TD
 
     subgraph Github_Actions
         C1[Unit Tests & Security Scan]
-        C2[@Smoke Test - snippet from Integration tests]
-        C3[@Integration Tests (Merge to main)]
-        C4[@Nightly (Full End 2 End)]
-        C5[@Performance Tests (Pre-Release)]
+        C2[Smoke Test - snippet from Integration tests]
+        C3[Integration Tests (Merge to main)]
+        C4[Nightly (Full End 2 End)]
+        C5[Performance Tests (Pre-Release)]
         D2[Env Variables]
     end
 
@@ -55,5 +55,5 @@ graph TD
     D2 --> C3
     D2 --> C4
     D2 --> C5
-    
+
     ```
