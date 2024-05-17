@@ -5,7 +5,7 @@
 graph TB
     subgraph Local_Development
         A1[Local Development]
-        A2[Environment Variables (.""env file)]
+        A2[Environment Variables ("."env file)]
     end
 
     subgraph Docker_Compose
