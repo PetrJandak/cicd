@@ -1,13 +1,8 @@
-name: CI Process
+name: Reusable
 on:
   push:
-  workflow_dispatch:
+  workflow_call:
     inputs:
-      skip_me:
-        description: 'skip'
-        type: boolean
-        default: false
-      myInput:
         type: boolean
         required: false
 
@@ -20,8 +15,6 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '18.16.1'
-      uses: ./github/workflows/resuable.yml
-      with:
-        myInput: ${{ input.myInput }}
-
+        run:
+          echo ${{ inputs.myInput }}
 
