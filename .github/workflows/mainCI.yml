@@ -21,8 +21,9 @@ jobs:
         with:
           node-version: '18.16.1'
   second_job:
-      uses: ./.github/workflows/resuable.yml
-      with:
-        myInput: ${{ inputs.myInput }}
+    needs: first_job
+    uses: ./.github/workflows/resuable.yml
+    with:
+      myInput: ${{ inputs.myInput }}
 
 
