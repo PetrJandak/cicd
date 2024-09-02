@@ -24,6 +24,6 @@ jobs:
     needs: first_job
     uses: ./.github/workflows/resuable.yml
     with:
-      myInput: ${{ inputs.myInput==true }}
+      myInput: ${{ inputs.myInput == true }}
 
 
