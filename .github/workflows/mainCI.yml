@@ -22,7 +22,7 @@ jobs:
           node-version: '18.16.1'
   second_job:
       runs-on: ubuntu-latest
-    - uses: ./.github/workflows/resuable.yml
+      uses: ./.github/workflows/resuable.yml
       with:
         myInput: ${{ inputs.myInput }}
 
