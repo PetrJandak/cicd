@@ -20,8 +20,8 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '18.16.1'
-      uses: ./github/workflows/resuable.yml
-      with:
-        myInput: ${{ input.myInput }}
+      - uses: ./github/workflows/resuable.yml
+        with:
+          myInput: ${{ input.myInput }}
 
 
