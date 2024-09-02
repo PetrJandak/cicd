@@ -2,8 +2,9 @@ name: Reusable
 on:
   workflow_call:
     inputs:
-      type: boolean
-      required: false
+      myInput:
+        type: boolean
+        required: false
 
 jobs:
   first_job:
